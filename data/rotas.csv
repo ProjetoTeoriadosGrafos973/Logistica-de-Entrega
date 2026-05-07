@@ -1,0 +1,12 @@
+origem,destino,distancia_km
+CD,MGC,10
+CD,GUA,50
+CD,SUZ,15
+MGC,SJC,85
+MGC,SPC,60
+GUA,SPC,20
+SUZ,POA,12
+POA,ITA,10
+SPC,SJC,95
+SJC,ITA,110
+
