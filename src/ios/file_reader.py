@@ -5,7 +5,6 @@ COLUNAS_PESO = ["peso", "distancia_km", "distancia", "km", "custo"]
 
 class FileReader:
     def __init__(self, pasta_data: str = "data"):
-        # pasta_data aponta para a pasta data/ do projeto
         self.pasta = pasta_data
 
     def _caminho(self, arquivo: str) -> str:
@@ -22,7 +21,6 @@ class FileReader:
     def carregar_rotas(self, grafo: Grafo):
         with open(self._caminho("rotas.csv"), "r", encoding="utf-8") as f:
             leitor = csv.DictReader(f)
-            # detecta automaticamente o nome da coluna de peso
             coluna = next((c for c in COLUNAS_PESO if c in leitor.fieldnames), None)
             if not coluna:
                 raise ValueError(f"Coluna de peso não encontrada. Disponíveis: {leitor.fieldnames}")
