@@ -66,8 +66,46 @@ pip install -r requirements.txt
 **Trecho do código com comentário de Big-O:**
 
 ```python
-# Cole aqui o trecho principal do algoritmo
-# com comentários de complexidade nas linhas críticas
+
+def dijkstra(grafo: Grafo, origem: str):
+    # O(V)
+    distancias = {no: float('inf') for no in grafo.nos()}
+    anteriores = {no: None for no in grafo.nos()}
+    distancias[origem] = 0
+    
+    # O(1)
+    # Heap para escolher o nó mais próximo
+    heap = [(0, origem)]
+
+    # Enquanto houver nós, ele executa a heap
+    while heap:
+        distancia_atual, no_atual = heapq.heappop(heap)
+        if distancia_atual > distancias[no_atual]:
+            continue
+
+        # Percorre todos os vizinhos do nó atual
+        for aresta in grafo.adjacencia[no_atual]:
+            nova_dist = distancias[no_atual] + aresta.peso
+            if nova_dist < distancias[aresta.destino]:
+                distancias[aresta.destino] = nova_dist
+                anteriores[aresta.destino] = no_atual
+
+                # Insere as novas distâncias no heap
+                heapq.heappush(heap, (nova_dist, aresta.destino))
+
+    return distancias, anteriores
+
+def reconstruir_caminho(anteriores, origem, destino):
+    caminho, no = [], destino
+    # Percorre o destino até a origem
+    while no:
+        # O(1)
+        caminho.append(no)
+        # O(1)
+        no = anteriores[no]
+    # O(V)
+    caminho.reverse()
+    return caminho if caminho and caminho[0] == origem else []
 ```
 
 ---
@@ -84,6 +122,7 @@ Logistica-de-Entrega/
 │   └── E1_template.md
 │   └── E2_template.md
 │   └── E3_template.md
+|   └── assets
 ├── src/
 │   ├── core/
 │   │   ├── graph.py         
@@ -104,6 +143,8 @@ Logistica-de-Entrega/
 ```
 
 **Desvios em relação ao E2** *(se houver)*:
+ 
+ Apenas a pastas Assets
 
 ---
 
@@ -113,16 +154,17 @@ Logistica-de-Entrega/
 
 ### Tela de Entrada
 
-![Tela de entrada](./asssets/Entrada.png)
+![Tela de entrada](./assets/Entrada.png)
 
 *Descrição:*
-A tela de entrada mostra 
+A tela de entrada mostra  um menu lateral com informações sobre os centros de distribuição e os pontos de entregas, além das rotas.
 
 ### Tela de Resultado
 
 ![Tela de resultado](./assets/Saida.png)
 
 *Descrição:*
+A tela de saída mostra uma rota já calculada pelo algoritmo, indicando a quilometragem e as paradas necessárias.
 
 ---
 
@@ -131,8 +173,8 @@ A tela de entrada mostra
 | Algoritmo | Caso de teste | Status   | Comando para executar |
 |-----------|-------------- |--------  |---------------------- |
 | Dijkstra  | Caso base     | ✅ / ✅ | `pytest tests/test_algoritmo.py:tests\test_algorithms.py ..      ` |
-| Grafo     | Grafo vazio   | ✅ / ❌ |                      | 
-| Grafo     | Grafo completo| ✅ / ✅ | `pytest tests/test_algoritmo.py:tests\test_graph.py ..       ` |
+| Grafo     | Grafo vazio   | ✅ / ✅ | `pytest tests/test_graph.py:tests\test_graph.py ..      `  | 
+| Grafo     | Grafo completo| ✅ / ✅ | `pytest tests/test_graph.py:tests\test_graph.py ..       ` |
 
 **Como rodar todos os testes:**
 
@@ -144,7 +186,9 @@ python -m pytest tests/test_graph.py
 **Resultado atual:**
 
 ```
-# Cole aqui a saída do pytest / JUnit
+tests\test_algorithms.py ..Caminho: ['A', 'B', 'C']
+
+tests\test_graph.py .Arestas: True
 ```
 
 ---
@@ -155,7 +199,7 @@ python -m pytest tests/test_graph.py
 
 | Hash (7 chars) | Mensagem | Autor |
 |----------------|----------|-------|
-| `` | docs: Ajustar documento 'E3_MVP_LOSTICA_DE_ENTREGAS' | GRUPO |
+| `ef7dd34fd454d1ee239600f2cd1a73ab979ce995` | docs: Ajustar documento 'E3_MVP_LOGISTICA_DE_ENTREGAS' | GRUPO |
 | `8d3a2283f93ae7c2a97a18f3fc8d8b81409fd3dd` | feat: Ajustar Documento E3 | GABRIELLE|
 | `c364a9c6828eecfcbf7a67bc63047d9b01cf0df5` | feat: ajuste interface | GABRIEL |
 | `90f9fac6befbdab3861d83e4b9da86daf3cc557e` | feat: construindo interface visual | MARIA|

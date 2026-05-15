@@ -10,6 +10,12 @@ def grafo_simples():
     g.adicionar_aresta("A", "C", 20)  
     return g
 
+def test_grafo_vazio():
+    g = Grafo()
+
+    assert len(g.adjacencia) == 0
+    assert g.adjacencia == {}
+    
 def test_dijkstra_caminho_mais_curto(grafo_simples):
     dist, prev = dijkstra(grafo_simples, "A")
     assert dist["C"] == 15
@@ -17,4 +23,5 @@ def test_dijkstra_caminho_mais_curto(grafo_simples):
 def test_reconstruir_caminho(grafo_simples):
     _, prev = dijkstra(grafo_simples, "A")
     caminho = reconstruir_caminho(prev, "A", "C")
+    print("Caminho:", caminho)
     assert caminho == ["A", "B", "C"]
