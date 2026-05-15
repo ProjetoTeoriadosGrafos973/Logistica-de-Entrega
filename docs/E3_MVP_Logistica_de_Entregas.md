@@ -155,10 +155,10 @@ python -m pytest tests/test_graph.py
 | Hash (7 chars) | Mensagem | Autor |
 |----------------|----------|-------|
 | `abc1234` | feat: implementa classe Graph com lista de adjacência | |
-| `def5678` | feat: implementa algoritmo Dijkstra | |
-| `ghi9012` | test: adiciona testes unitários para Dijkstra | |
-| `jkl3456` | feat: leitura de grafo a partir de JSON | |
-| `mno7890` | feat: tela de resultado via CLI | |
+| `def5678` | feat: Ajustar Documento E3 | GABRIELLE|
+| `c364a9c6828eecfcbf7a67bc63047d9b01cf0df5` | test: ajuste interface | GABRIEL |
+| `90f9fac6befbdab3861d83e4b9da86daf3cc557e` | feat: construindo interface visual | MARIA|
+| `99cf68a998e4b18c9e21ffb33b05ba691f23b708` | feat: Adicionar novas funcionalidades | GRUPO|
 
 ---
 
