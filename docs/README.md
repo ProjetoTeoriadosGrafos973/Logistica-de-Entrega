@@ -15,6 +15,7 @@ pip install -r requirements.txt
 # rodar a interface web
 
 cd Logística-de-Entrega
+
 streamlit run src/main.py
 
 # rodar os testes
