@@ -1,4 +1,4 @@
-from core.edge import Edge
+from src.core.edge import Edge
 
 class Grafo:
     def __init__(self):

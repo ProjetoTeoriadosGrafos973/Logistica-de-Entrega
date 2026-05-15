@@ -4,8 +4,8 @@ from core.graph import Grafo
 from algorithms.algoritmoDijkstra import dijkstra, reconstruir_caminho
 from ios.file_reader import FileReader
 
-st.set_page_config(page_title="Logística de Entregas", page_icon="📦", layout="wide")
-st.title("📦 Sistema de Logística de Entregas")
+st.set_page_config(page_title="Logística de Entregas", layout="wide")
+st.title("Sistema de Logística de Entregas")
 
 @st.cache_resource
 def carregar_sistema():
@@ -17,22 +17,21 @@ def carregar_sistema():
 
 grafo, nomes, reader = carregar_sistema()
 
-# Sidebar
+
 with st.sidebar:
-    st.header("🗺️ Rede cadastrada")
+    st.header("Rede cadastrada")
     st.subheader("Cidades")
     st.dataframe(pd.read_csv("data/cidades.csv"), hide_index=True, use_container_width=True)
     st.subheader("Rotas")
     st.dataframe(pd.read_csv("data/rotas.csv"), hide_index=True, use_container_width=True)
 
-# Conteúdo principal
 col1, col2 = st.columns(2)
 
 ids    = list(nomes.keys())
 opcoes = [f"{id_} — {nome}" for id_, nome in nomes.items()]
 
 with col1:
-    st.subheader("🔍 Calcular rota")
+    st.subheader("Calcular rota")
     origem_sel  = st.selectbox("Origem",  opcoes, index=0)
     destino_sel = st.selectbox("Destino", opcoes, index=len(opcoes)-1)
 
@@ -55,27 +54,6 @@ with col1:
                 m1.metric("Distância", f"{dist[destino_id]} km")
                 m2.metric("Paradas",   len(caminho) - 2)
                 st.markdown("**Rota:** " + " → ".join(f"`{n}`" for n in nomes_caminho))
-
-with col2:
-    st.subheader("📂 Importar entregas")
-    arquivo = st.file_uploader("Envie entregas.csv", type="csv")
-    if arquivo:
-        df = pd.read_csv(arquivo)
-        st.dataframe(df, hide_index=True)
-        if st.button("Processar", type="primary"):
-            resultados = []
-            for _, linha in df.iterrows():
-                dist, prev = dijkstra(grafo, linha["origem"])
-                caminho    = reconstruir_caminho(prev, linha["origem"], linha["destino"])
-                if caminho:
-                    nomes_c = [nomes.get(c, c) for c in caminho]
-                    resultados.append({
-                        "Pacote":    linha["pacote_id"],
-                        "Rota":      " → ".join(nomes_c),
-                        "Distância": f"{dist[linha['destino']]} km",
-                        "Paradas":   len(caminho) - 2,
-                    })
-            st.dataframe(pd.DataFrame(resultados), hide_index=True, use_container_width=True)
 
 class SistemaLogistica:
     def __init__(self, pasta_data: str = "data"):

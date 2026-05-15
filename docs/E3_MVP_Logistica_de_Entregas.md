@@ -10,8 +10,8 @@
 
 | Campo | Preenchimento |
 |-------|---------------|
-| Nome do projeto | |
-| Repositório GitHub | |
+| Nome do projeto | Logística de Entregas|
+| Repositório GitHub | https://github.com/ProjetoTeoriadosGrafos973/Logistica-de-Entrega |
 | Integrante 1 | Gabriel Santos da Silva - 42565561  |
 | Integrante 2 | Gabrielle dos Santos Carmo  - 44124937 |
 | Integrante 3  | Maria Beatriz Santos Carvalho - 38778131|
@@ -113,13 +113,14 @@ Logistica-de-Entrega/
 
 ### Tela de Entrada
 
-![Tela de entrada](./Entrada.png)
+![Tela de entrada](./asssets/Entrada.png)
 
 *Descrição:*
+A tela de entrada mostra 
 
 ### Tela de Resultado
 
-![Tela de resultado](./Saida.png)
+![Tela de resultado](./assets/Saida.png)
 
 *Descrição:*
 
@@ -127,11 +128,11 @@ Logistica-de-Entrega/
 
 ## 5. Testes Unitários
 
-| Algoritmo | Caso de teste | Status | Comando para executar |
-|-----------|--------------|--------|----------------------|
-| | Caso base | ✅ / ✅ | `pytest tests/test_algoritmo.py:tests\test_algorithms.py ..      ` |
-| | Grafo vazio | ✅ / ❌ | | 
-| | Grafo completo | ✅ / ✅ | | `pytest tests/test_algoritmo.py:tests\test_graph.py ..       ` 
+| Algoritmo | Caso de teste | Status   | Comando para executar |
+|-----------|-------------- |--------  |---------------------- |
+| Dijkstra  | Caso base     | ✅ / ✅ | `pytest tests/test_algoritmo.py:tests\test_algorithms.py ..      ` |
+| Grafo     | Grafo vazio   | ✅ / ❌ |                      | 
+| Grafo     | Grafo completo| ✅ / ✅ | `pytest tests/test_algoritmo.py:tests\test_graph.py ..       ` |
 
 **Como rodar todos os testes:**
 
@@ -154,9 +155,9 @@ python -m pytest tests/test_graph.py
 
 | Hash (7 chars) | Mensagem | Autor |
 |----------------|----------|-------|
-| `abc1234` | feat: implementa classe Graph com lista de adjacência | |
-| `def5678` | feat: Ajustar Documento E3 | GABRIELLE|
-| `c364a9c6828eecfcbf7a67bc63047d9b01cf0df5` | test: ajuste interface | GABRIEL |
+| `` | docs: Ajustar documento 'E3_MVP_LOSTICA_DE_ENTREGAS' | GRUPO |
+| `8d3a2283f93ae7c2a97a18f3fc8d8b81409fd3dd` | feat: Ajustar Documento E3 | GABRIELLE|
+| `c364a9c6828eecfcbf7a67bc63047d9b01cf0df5` | feat: ajuste interface | GABRIEL |
 | `90f9fac6befbdab3861d83e4b9da86daf3cc557e` | feat: construindo interface visual | MARIA|
 | `99cf68a998e4b18c9e21ffb33b05ba691f23b708` | feat: Adicionar novas funcionalidades | GRUPO|
 
@@ -166,12 +167,12 @@ python -m pytest tests/test_graph.py
 
 | Funcionalidade | Status | Observação |
 |---------------|--------|------------|
-| Classe do grafo | ✅ Completo | |
-| Algoritmo principal | ✅ Completo | |
-| Leitura de arquivo | ✅ Completo | |
-| Tela de entrada | ✅ Completo | |
-| Tela de resultado | ✅ Completo | |
-| Testes unitários |  🔄 Parcial | |
+| Classe do grafo | ✅ Completo | A classe dos grafos funciona como o esperado |
+| Algoritmo principal | ✅ Completo | O algoritmo Dijkstra  funciona como esperado |
+| Leitura de arquivo | ✅ Completo | O arquivo file_reader consegue lê e identificar todos os arquivos em formato csv |
+| Tela de entrada | ✅ Completo | A tela de saída mostra a interface do sistema como esperado |
+| Tela de resultado | ✅ Completo | A tela de resultado mostra a interface do sistema como esperado |
+| Testes unitários |  🔄 Parcial | Os testes funciona por um comando em um computador, mas em outros funciona de outra forma |
 
 ---
 

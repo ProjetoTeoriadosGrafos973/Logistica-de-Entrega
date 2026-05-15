@@ -61,7 +61,7 @@ CORMEN, T. H. et al. Algoritmos: teoria e prática. 3. ed. Rio de Janeiro: Elsev
 
 > Insira o diagrama abaixo. Pode ser exportado do Draw.io, Excalidraw, etc.
 
-![Diagrama de arquitetura](./arquitetura_e2.png)
+![Diagrama de arquitetura](./assets/arquitetura_e2.png)
 
 ### Descrição das camadas
 
