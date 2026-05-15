@@ -20,4 +20,5 @@ streamlit run src/main.py
 
 # rodar os testes
 
-pytest tests/
+python -m pytest tests/test_algorithms.py
+python -m pytest tests/test_graph.py
