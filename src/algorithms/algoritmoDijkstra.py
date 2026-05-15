@@ -1,8 +1,9 @@
 import heapq
-from src.core import edge
+from core import edge
 
 
 def dijkstra(grafo: Grafo, origem: str):
+
     distancias = {no: float('inf') for no in grafo.nos()}
     anteriores = {no: None for no in grafo.nos()}
     distancias[origem] = 0
