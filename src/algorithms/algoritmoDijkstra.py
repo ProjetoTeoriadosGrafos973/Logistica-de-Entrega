@@ -1,7 +1,6 @@
 import heapq
 from core import edge
 
-
 def dijkstra(grafo: Grafo, origem: str):
 
     distancias = {no: float('inf') for no in grafo.nos()}

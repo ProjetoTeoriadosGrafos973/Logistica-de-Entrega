@@ -131,6 +131,7 @@ Logistica-de-Entrega/
 │   │   └── algoritmo.py      
 │   ├── ios/
 │   │   └── file_reader.py
+│   │   └── api_osrm.py
 │   └── main.py
 ├── tests/
 │   ├── test_graph.py
@@ -144,7 +145,7 @@ Logistica-de-Entrega/
 
 **Desvios em relação ao E2** *(se houver)*:
  
- Apenas a pastas Assets
+ Apenas a pastas assets e o arquivo api_osrm
 
 ---
 
