@@ -62,7 +62,7 @@ python -m pytest tests/test_graph.py
 
 
 ---
-## Demostração Visual
+## Demonstração Visual
 
 ### Tela Inicial
 > Essa é a tela principal do sistema, onde o usuário pode visualizar á esquerda, as Redes cadastradas, compostos pelos Pontos de Entregas Xpress da Shopee e suas cidades, além de rotas pré inseridas no sistema. Ao centro da tela se encontra os botões para selecionar a origem e o destino, além do mapa á direita.
